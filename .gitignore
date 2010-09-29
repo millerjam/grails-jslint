@@ -29,7 +29,6 @@ test/reports
 *.dmg
 *.gz
 *.iso
-*.jar
 *.rar
 *.tar
 *.zip
