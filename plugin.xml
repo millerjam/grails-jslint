@@ -1,0 +1,22 @@
+<plugin name='jslint' version='0.1' grailsVersion='1.2.1 &gt; *'>
+  <author>James Miller</author>
+  <authorEmail>jamesmiller01@gmail.com</authorEmail>
+  <title>JsLint for Grails</title>
+  <description>\
+A Grails command line script to run JsLint on javascript files. This will run jslint on the web-app/js 
+directory when you type in grails jslint.
+</description>
+  <documentation>http://grails.org/plugin/jslint</documentation>
+  <resources>
+    <resource>BuildConfig</resource>
+    <resource>DataSource</resource>
+    <resource>JsLintConfig</resource>
+    <resource>UrlMappings</resource>
+  </resources>
+  <dependencies>
+    <resolvers>
+      <resolver type='grailsPlugins' name='grailsPlugins' />
+    </resolvers>
+  </dependencies>
+  <behavior />
+</plugin>
