@@ -5,6 +5,7 @@ target(jslint: "Run jslint on javascript files") {
 	def jsDir = "web-app/js"
 	def includesParam = "**/*.js"	
 	def excludesParam = ""
+	def haltOnFailure = null
 	
 	parseArguments()
 	ant.taskdef ( name : 'jslint' , classname : 'com.googlecode.jslint4java.ant.JSLintTask' , classpath : "lib/jslint4java-1.3.3.jar")
@@ -16,24 +17,23 @@ target(jslint: "Run jslint on javascript files") {
 		jsDir = jslintConfig.jslint.directory ? jslintConfig.jslint.directory : jsDir
 		includesParam = jslintConfig.jslint.includes ? jslintConfig.jslint.includes : includesParam
 		excludesParam = jslintConfig.jslint.excludes ? jslintConfig.jslint.excludes : excludesParam
+		haltOnFailure = jslintConfig.jslint.haltOnFailure =~ /true|false/ ? jslintConfig.jslint.haltOnFailure : haltOnFailure
 	}
 	
 	jsOptions = argsMap["o"] ? argsMap["o"] : jsOptions
 	jsDir = argsMap["d"] ? argsMap["d"] : jsDir
 	includesParam = argsMap["i"] ? argsMap["i"] : includesParam
 	excludesParam = argsMap["e"] ? argsMap["e"] : excludesParam
-		
-	println "running jslint on:" + jsDir
-	if(jsOptions) {
-		ant.jslint( options:jsOptions ) {
-			formatter ( type : "plain" )
-			fileset ( dir : jsDir, includes: includesParam, excludes: excludesParam ) 
-		}
-	} else {
-		ant.jslint() {
-			formatter ( type : "plain" )
-			fileset ( dir : jsDir, includes: includesParam, excludes: excludesParam ) 
-		}
+	haltOnFailure = argsMap["h"] =~ /true|false/ ? argsMap["h"] : haltOnFailure
+	
+	def options = [:]
+	if (jsOptions) options.put("options", jsOptions)
+	if (haltOnFailure != null) options.put("haltOnFailure", Boolean.valueOf(haltOnFailure))
+	
+	println "Running jslint on:" + jsDir
+	ant.jslint( options ) {
+		formatter ( type : "plain" )
+		fileset ( dir : jsDir, includes: includesParam, excludes: excludesParam ) 
 	}
 	println "jslint done."
 }

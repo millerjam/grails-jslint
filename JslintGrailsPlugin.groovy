@@ -1,6 +1,6 @@
 class JslintGrailsPlugin {
     // the plugin version
-    def version = "0.1"
+    def version = "0.2"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "1.2.1 > *"
     // the other plugins this plugin depends on
@@ -12,32 +12,41 @@ class JslintGrailsPlugin {
     
     def scopes = [excludes:'war']
 
+    // TODO Fill in these fields
     def author = "James Miller"
     def authorEmail = "jamesmiller01@gmail.com"
     def title = "JsLint for Grails"
     def description = '''\\
-A Grails command line script to run JsLint on javascript files. This will run jslint on the web-app/js 
-directory when you type in grails jslint.
+A Grails command line script to run JsLint on javascript files.
 '''
 
     // URL to the plugin's documentation
     def documentation = "http://grails.org/plugin/jslint"
 
     def doWithWebDescriptor = { xml ->
+        // TODO Implement additions to web.xml (optional), this event occurs before 
     }
 
     def doWithSpring = {
+        // TODO Implement runtime spring config (optional)
     }
 
     def doWithDynamicMethods = { ctx ->
+        // TODO Implement registering dynamic methods to classes (optional)
     }
 
     def doWithApplicationContext = { applicationContext ->
+        // TODO Implement post initialization spring config (optional)
     }
 
     def onChange = { event ->
+        // TODO Implement code that is executed when any artefact that this plugin is
+        // watching is modified and reloaded. The event contains: event.source,
+        // event.application, event.manager, event.ctx, and event.plugin.
     }
 
     def onConfigChange = { event ->
+        // TODO Implement code that is executed when the project configuration changes.
+        // The event is the same as for 'onChange'.
     }
 }
