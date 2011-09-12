@@ -24,7 +24,7 @@ grails.project.dependency.resolution = {
     }
 
 	dependencies {
-		runtime('com.googlecode.jslint4java:jslint4java-ant:1.4.2') {
+		runtime('com.googlecode.jslint4java:jslint4java-ant:2.0.0') {
 
 		}
 	}

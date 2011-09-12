@@ -8,7 +8,7 @@ target(jslint: "Run jslint on javascript files") {
 	def haltOnFailure = null
 	
 	parseArguments()
-	ant.taskdef ( name : 'jslint' , classname : 'com.googlecode.jslint4java.ant.JSLintTask' , classpath : "lib/jslint4java-1.3.3.jar")
+	ant.taskdef ( name : 'jslint' , classname : 'com.googlecode.jslint4java.ant.JSLintTask')
 	def jslintConfig = loadConfig()
 	
 	if(jslintConfig?.jslint) {
@@ -32,7 +32,7 @@ target(jslint: "Run jslint on javascript files") {
 	
 	println "Running jslint on:" + jsDir
 	ant.jslint( options ) {
-		formatter ( type : "plain" )
+		formatter ( type : "plain" )    //TODO allow config of formatter
 		fileset ( dir : jsDir, includes: includesParam, excludes: excludesParam ) 
 	}
 	println "jslint done."
