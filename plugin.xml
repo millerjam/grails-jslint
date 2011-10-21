@@ -21,7 +21,7 @@ A Grails command line script to run JsLint on javascript files.
       <resolver type='mavenRepo' root='http://download.java.net/maven/2/' name='http://download.java.net/maven/2/' m2compatbile='true' />
       <resolver type='mavenRepo' root='http://repository.jboss.com/maven2/' name='http://repository.jboss.com/maven2/' m2compatbile='true' />
     </resolvers>
-    <dependency group='com.googlecode.jslint4java' name='jslint4java-ant' version='2.0.0' conf='runtime' transitive='true' />
+    <dependency group='com.googlecode.jslint4java' name='jslint4java-ant' version='2.0.1' conf='runtime' transitive='true' />
   </dependencies>
   <behavior />
 </plugin>
