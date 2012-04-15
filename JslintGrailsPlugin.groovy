@@ -2,7 +2,7 @@ class JslintGrailsPlugin {
     // the plugin version
     def version = "0.4"
     // the version or versions of Grails the plugin is designed for
-    def grailsVersion = "1.2.1 > *"
+    def grailsVersion = "1.3.7 > *"
     // the other plugins this plugin depends on
     def dependsOn = [:]
     // resources that are excluded from plugin packaging
@@ -12,13 +12,20 @@ class JslintGrailsPlugin {
     
     def scopes = [excludes:'war']
 
-    // TODO Fill in these fields
     def author = "James Miller"
     def authorEmail = "jamesmiller01@gmail.com"
     def title = "JsLint for Grails"
-    def description = '''\\
-A Grails command line script to run JsLint on javascript files.
-'''
+    def description = '''A Grails command line script to run JsLint on javascript files.
+There is also an option to produce html reports.
+    '''
+
+    def issueManagement = [system: 'github', url: "https://github.com/millerjam/grails-jslint/issues"]
+    def scm = [url: "https://github.com/millerjam/grails-jslint"]
+    def license = "APACHE"
+    def developers = [
+            [ name: "James Miller" ],
+            [ name: "Jeff Beck" ]
+    ]
 
     // URL to the plugin's documentation
     def documentation = "http://grails.org/plugin/jslint"
