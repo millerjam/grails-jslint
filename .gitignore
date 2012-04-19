@@ -11,6 +11,8 @@
 /out/**
 stacktrace.log
 test/reports
+/target/**
+plugin.xml
 
 # Compiled source #
 ###################
