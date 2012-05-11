@@ -33,13 +33,11 @@ target(jslint: "Run jslint on javascript files") {
 
   def reports = getConfiguredReports(jslintConfig.jslint)
 
-  println reports
-
   println "Running jslint on:" + jsDir
   ant.jslint(options) {
 
-    //formatter(type: "plain")    //TODO allow config of formatter
     reports.each { r ->
+	  println "Creating ${r.type} report at ${r.destfile}"
       formatter(type: r.type, destfile: r.destfile)
     }
 
@@ -70,7 +68,6 @@ private class ReportsDslDelegate
 
   def methodMissing(String name, args)
   {
-    println "Adding report $name"
     assert args.size() == 2, "Report name [$name] must specify two parameters: a report type(String or Class) and a Closure"
     assert args[0] instanceof String || args[0] instanceof Class, "Report name [$name] must specify a String or Class report type"
     assert args[0], "The report definition for [$name] must specify the report type that is not empty or null"
@@ -87,10 +84,8 @@ private class ReportsDslDelegate
 
 private List getConfiguredReports(config)
 {
-  println config
   if (config.reports)
   {
-    println "inside"
     assert config.reports instanceof Closure, "The reports property value must be a Closure"
     def closure = config.reports
     def delegate = new ReportsDslDelegate()
