@@ -6,6 +6,7 @@ target(jslint: "Run jslint on javascript files") {
   def includesParam = "**/*.js"
   def excludesParam = ""
   def haltOnFailure = null
+  def preDef = ""
 
   parseArguments()
   ant.taskdef(name: 'jslint', classname: 'com.googlecode.jslint4java.ant.JSLintTask')
@@ -19,7 +20,10 @@ target(jslint: "Run jslint on javascript files") {
     includesParam = jslintConfig.jslint.includes ? jslintConfig.jslint.includes : includesParam
     excludesParam = jslintConfig.jslint.excludes ? jslintConfig.jslint.excludes : excludesParam
     haltOnFailure = jslintConfig.jslint.haltOnFailure =~ /true|false/ ? jslintConfig.jslint.haltOnFailure : haltOnFailure
+    preDef = jslintConfig.jslint.preDef ?: preDef
   }
+
+  preDef = preDef.replaceAll(/\$/,/\$\$/)
 
   jsOptions = argsMap["o"] ? argsMap["o"] : jsOptions
   jsDir = argsMap["d"] ? argsMap["d"] : jsDir
@@ -27,15 +31,16 @@ target(jslint: "Run jslint on javascript files") {
   excludesParam = argsMap["e"] ? argsMap["e"] : excludesParam
   haltOnFailure = argsMap["h"] =~ /true|false/ ? argsMap["h"] : haltOnFailure
 
+
   def options = [:]
   if (jsOptions) options.put("options", jsOptions)
   if (haltOnFailure != null) options.put("haltOnFailure", Boolean.valueOf(haltOnFailure))
 
-  def reports = getConfiguredReports(jslintConfig.jslint)
+  def reports = getConfiguredReports(jslintConfig?.jslint)
 
   println "Running jslint on:" + jsDir
   ant.jslint(options) {
-
+    ant.predef(preDef)
     reports.each { r ->
 	  println "Creating ${r.type} report at ${r.destfile}"
       formatter(type: r.type, destfile: r.destfile)
