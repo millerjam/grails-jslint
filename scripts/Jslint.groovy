@@ -39,6 +39,14 @@ target(jslint: "Run jslint on javascript files") {
   def reports = getConfiguredReports(jslintConfig?.jslint)
 
   println "Running jslint on:" + jsDir
+
+  //make any missing dirs
+  reports.each { r->
+      def file = new File(r.destfile)
+
+      file.parentFile.mkdirs()
+  }
+
   ant.jslint(options) {
     ant.predef(preDef)
     reports.each { r ->
