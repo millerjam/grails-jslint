@@ -1,5 +1,0 @@
-<jslint><file name='/home/beck/projects/grails-jslint/test/project/web-app/js/application.js'>
-<issue line='1' char='12' reason='&apos;jQuery&apos; was used before it was defined.' evidence='if (typeof jQuery !== &apos;undefined&apos;) {'/>
-<issue line='8' char='7' reason='Move the invocation into the parens that contain the function.' evidence='	})(jQuery);'/>
-</file><file name='/home/beck/projects/grails-jslint/test/project/web-app/js/example.js'>
-</file></jslint>

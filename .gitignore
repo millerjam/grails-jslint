@@ -13,6 +13,7 @@ stacktrace.log
 test/reports
 /target/**
 plugin.xml
+/test/project/target/**
 
 # Compiled source #
 ###################

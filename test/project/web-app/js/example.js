@@ -18,8 +18,23 @@ $(document).ready(
 		$('.fade').innerfade({
 			speed: 'slow',
 			timeout: 1000,
-			type: 'sequence',
+            type: 'sequence',
 			containerheight: '1.5em'
 		});
 	}
 );
+
+function badIndent()
+{
+ var x =0;
+    var y = 1;
+         var z = 2;
+
+   x = y + z;
+        z = 4 + z;
+
+
+
+
+
+}

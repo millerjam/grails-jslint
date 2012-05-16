@@ -1,4 +1,4 @@
-jslint.options = "white,browser,sloppy,maxerr=10000"
+jslint.options = 'browser,plusplus,regexp,sloppy,white,indent=4,nomen,maxerr=999999999'
 jslint.directory = "web-app/js"
 jslint.includes = "**/*.js"
 jslint.excludes = "**/*.min.js, **/i18n/**/*.js, **/prototype/*.js,**/*-min.js,**/*.pack.js"
