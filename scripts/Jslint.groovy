@@ -75,7 +75,7 @@ loadConfig = {
 setDefaultTarget(jslint)
 
 
-private class ReportsDslDelegate
+class ReportsDslDelegate
 {
   List reports = []
 
