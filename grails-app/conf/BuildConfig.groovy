@@ -13,18 +13,12 @@ grails.project.dependency.resolution = {
         grailsPlugins()
         grailsHome()
 
-        // uncomment the below to enable remote dependency resolution
-        // from public Maven repositories
-        //mavenLocal()
         mavenCentral()
-        //mavenRepo "http://snapshots.repository.codehaus.org"
-        //mavenRepo "http://repository.codehaus.org"
-        //mavenRepo "http://download.java.net/maven/2/"
-        //mavenRepo "http://repository.jboss.com/maven2/"
+
     }
 
 	dependencies {
-		compile 'com.googlecode.jslint4java:jslint4java-ant:2.0.2'
+		compile 'com.googlecode.jslint4java:jslint4java-ant:2.0.5'
 	}
 
     plugins{
