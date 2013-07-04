@@ -1,9 +1,7 @@
-jslint.options = 'browser,plusplus,regexp,sloppy,indent=4,nomen,maxerr=999999999'
-jslint.directory = "web-app/js"
+jslint.options = "white"
+//jslint.directory = "web-app/js/test"	
 jslint.includes = "**/*.js"
-jslint.excludes = "**/*.min.js, **/i18n/**/*.js, **/prototype/*.js,**/*-min.js,**/*.pack.js"
-jslint.haltOnFailure = false
-jslint.preDef = "\$"
+jslint.excludes = ""
 jslint.reports = {
 
 
